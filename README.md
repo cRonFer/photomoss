@@ -54,7 +54,7 @@ ccspectral.df
 # The basic result of this function is a dataframe with the areas in number of pixels of background and moss area for each sample.
 # If argument descrip = T the descriptive statistics of the different areas. que?
 # The resulting data.frame is saved in a new folder in your working directory.
-ccspectral.df(tif.path, # your working directory
+ccspectral.df(tif.path,
               chart, # object chart obtained wuith the function chart2
               obs.areas, # Polygon files obtained with roi2polygon.2 function
               pdf = F,
@@ -69,11 +69,9 @@ ccspectral.df(tif.path, # your working directory
 ```
 Arguments:
 
-- *_wd.path*: the path of the working directory where are the vis, nir, mask, rois folders and names.csv file.
+- *tif.path*: the path of the working directory where are the vis, nir, mask, rois folders and names.csv file.
 
 - *chart*: polygon list obtained with chart.2 function.
-
-- *pic.format*: Picture file format. It could be "jpg" for .jpg, .JPG and .jpeg; or "tif", for .tif format. Default = "tif".
 
 - *obs.areas*: list of polygons data.frame obtained with roi2polygon function.
 
