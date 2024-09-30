@@ -9,10 +9,11 @@ The following **diagram** describes the workflow in which the scripts are organi
 ```mermaid
 flowchart LR
     A([calcs]) --> B{cc.spectral}
-    C{chart2}
+    C{chart2} -->|chart| B
+ O[chart.from.tif?] --> C
 
-    D[calculate.raster.thresh.fun.ccsdf] --> A
-    E[autothreshold.value.fun.ccsdf] --> D
+   D[calculate.raster.thresh.fun.ccsdf] --> A
+   E[autothreshold.value.fun.ccsdf] --> D
    F[cell.extract.color.cal.fun.ccsdf] --> A
    G[indexcalculation.fun.ccsdf] --> A
    H[raster.jpg.ccspectral.ccsdf] --> A
@@ -23,10 +24,10 @@ flowchart LR
    
    M[cell.count.sf.class.fun.ccsdf] --> AA
    N[change.labels.order] --> AA
-   O[chart.from.tif?] --> C
-   P[extractPIX.from.POLY] --> AA
-   Q[roi2polygon] --> P
    AA[UNKNOWN]
+
+   Q[roi2polygon] --> P
+   P[extractPIX.from.POLY] --> |obs.areas = Polygon| B
+   
    B --> BB[example]
-   C --> BB[example]
    ```
