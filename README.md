@@ -1,7 +1,7 @@
 ## photomoss
 
 # Workflow
-![workflowPHOTOMOSS](https://github.com/user-attachments/assets/54daaf68-d1a0-4ba8-890b-7251fc9261bc)
+![workflowPHOTOMOSS](https://github.com/user-attachments/assets/c9094858-47e9-476a-a88a-1b919738ac82)
 # Workflow of photomossR code
 The following **diagram** describes the workflow in which the scripts are organized to create de package
 
