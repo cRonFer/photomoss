@@ -1,7 +1,7 @@
 # photomoss
 
 # Workflow
-The following **diagram** describes the workflow in which the scripts are organized to reproduce the methods sections of the paper.
+The following **diagram** describes the workflow in which the scripts are organized to create de package
 
 ```mermaid
 flowchart LR
