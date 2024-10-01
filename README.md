@@ -99,7 +99,7 @@ The following **diagram** describes the workflow in which the scripts are organi
 flowchart LR
     A([calcs]) --> B{cc.spectral}
     C{chart2} -->|chart| B
- O[chart.from.tif?] --> C
+    O[chart.from.tif?] --> C
 
    D[calculate.raster.thresh.fun.ccsdf] --> A
    E[autothreshold.value.fun.ccsdf] --> D
@@ -111,12 +111,11 @@ flowchart LR
    J[descriptor.calculation.fun] --> A
    K[plotpdf] --> A
    L[TSS.IoU] --> A
-   
-   N[change.labels.order] --> AA
-   AA[UNKNOWN]
+  
 
-   Q[roi2polygon] --> P
-   P[extractPIX.from.POLY] --> |obs.areas = Polygon| B
+   Q[roi2polygon] --> |obs.areas = Polygon| B
    
    B --> BB[example]
+   P[extractPIX.from.POLY] --> BB
+   N[change.labels.order] --> BB
    ```
