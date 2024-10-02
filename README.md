@@ -2,7 +2,8 @@
 Photomoss is a full protocol that involves image retrieval, pre-processing, calculation of spectral indices and binary segmentation. Whole process is supported by a combination of cheap modified drone cameras and built-for-purpose ImageJ macros and the R package, PhotomossR. It offers a research tool to work with Biological Soil Covers, including biological soil crusts.
 
 ## Protocol:
-![workflowPHOTOMOSS](https://github.com/user-attachments/assets/c9094858-47e9-476a-a88a-1b919738ac82)
+
+![fig2](https://github.com/user-attachments/assets/28c1f7b0-bbb1-4273-a29f-2e0d694ea143)
 
 **2. Image pre-processing:**
 
