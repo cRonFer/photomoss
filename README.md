@@ -3,17 +3,27 @@ Photomoss is a full protocol that involves image retrieval, pre-processing, calc
 
 ## Protocol:
 
-![fig2](https://github.com/user-attachments/assets/28c1f7b0-bbb1-4273-a29f-2e0d694ea143)
+![workflowPHOTOMOSS](https://github.com/user-attachments/assets/17549407-fd48-4ce1-a45e-4daf910b3b91)
 
-**2. Image pre-processing:**
+***
+### **2. Image pre-processing:**
 
 A ImageJ imj macro repository providing tools to paired images alignment and histogram matching within a picture series. We use ImageJ because it is open-source, very accessible and familiar in biological sciences, fitting with our main goal to develop an free and accessible protocol.
-Find tutorial here***!! (Nagore)
+- 2.2 Alignment:
+  Allow NIR-VIS pictures perfectly match for spectral index calculation.
+  Note: NIR and VIS paired images must be in the same order in its respective directories.
+ > [!TIP]
+ > **Tutorial** for [image alignment](https://github.com/ngmedina/NirVisAlign/blob/main/README.md)
 
+- 2.3 Histogram homogenization:
+ Homogenization reduces exposure differences between images. We select one image from each NIR/VIS series to use it as histogram reference to match the rest of histograms within picture series.
+ > [!TIP]
+ > **Tutorial** for histogram matching 
 
-**3. What is PhotomossR?**
+***
+### **3. What is PhotomossR?**
 
-PhotomossR is a developement from mosscoder/crustcover package (https://github.com/mosscoder/crustCover). PhotomossR is the analitical part of the Photomoss protocol, an open source protocol focused on meassure of Biological Soil Covers areas in field or lab experiments. To achieve this duty, it uses the same principles as (Fischer2012) that take advantage of Near InfraRed (NIR) and visible RGB images. With the color channels of this images, we can calculate several spectral indexes. In contrast with crustcover that measures seven index, PhotomossR can use a great set of 19 spectral indexes. As crust cover, PhotomossR core function can calculate moss area using a given spectral index and implementigg a custom threshold value, but in addition, it can apply an automatic segmentation following a set of 12 different segmentation methods if needed. Other additional functionalities of PhotomossR in comparison with crustcover are the semiautomatization of analysis over the images, and a segmentation accuracy test functionality, to test the segmentation accuracy comparing the calculated surfaces with a the baseline provided by a binary mask done with ImageJ.
+PhotomossR is a developement from [mosscoder/crustcover package](https://github.com/mosscoder/crustCover). PhotomossR is the analitical part of the Photomoss protocol, an open source protocol focused on meassure of Biological Soil Covers areas in field or lab experiments. To achieve this duty, it uses the same principles as (Fischer2012) that take advantage of Near InfraRed (NIR) and visible RGB images. With the color channels of this images, we can calculate several spectral indexes. In contrast with crustcover that measures seven index, PhotomossR can use a great set of 19 spectral indexes. As crust cover, PhotomossR core function can calculate moss area using a given spectral index and implementigg a custom threshold value, but in addition, it can apply an automatic segmentation following a set of 12 different segmentation methods if needed. Other additional functionalities of PhotomossR in comparison with crustcover are the semiautomatization of analysis over the images, and a segmentation accuracy test functionality, to test the segmentation accuracy comparing the calculated surfaces with a the baseline provided by a binary mask done with ImageJ.
 
 **Installing PhotomossR**
 ```{.r }
@@ -33,7 +43,7 @@ library(PhotomossR)
 wd.path <- ''
 setwd(wd.path)
 ````
-chart2
+#### **chart2**
 ```{.r }
 # We create the chart object (a list of polygons) with the chart2 function.
 # To do this we click over the color cells chart in the image.
@@ -42,7 +52,7 @@ chart <- chart2(wd.path)
 ```
 ![image](https://github.com/user-attachments/assets/7c348dac-f727-4793-a908-ba2d940b9966)
 
-roi2polygon.2 and extractPIX.from.Poly.
+#### **roi2polygon.2 and extractPIX.from.Poly.**
 ```{.r }
 # Creates a readable polygon files from the ImageJ .roi files.
 # Then we crop the pixels that fell inside the polygons and obtain a list polygon dataframe (obs.areas object)
@@ -50,7 +60,7 @@ roi2polygon.2 and extractPIX.from.Poly.
 roi_paths <- list.files(path = "./rois", pattern=".roi$", full.names = T, recursive = T)
 obs.areas <- roi2polygon(roi.folder = "./rois", pic.folder = "./vis")
 ```
-ccspectral.df
+#### **ccspectral.df**
 ```{.r }
 # The basic result of this function is a dataframe with the areas in number of pixels of background and moss area for each sample.
 # If argument descrip = T the descriptive statistics of the different areas. que?
@@ -68,7 +78,7 @@ ccspectral.df(tif.path,
               descriptors. = c("median", "mean", "sd", "min", "max", "diff.range")
               )
 ```
-Arguments:
+*Arguments:*
 
 - *tif.path*: the path of the working directory where are the vis, nir, mask, rois folders and names.csv file.
 
@@ -93,8 +103,9 @@ Arguments:
 - *descriptors.*: character, if descrip= T the statistic descriptors of index values in the classified areas. Default: descriptors. = c("median","mean","sd","min", "max","diff.range")
 
 ****
-## Workflow of photomossR code
-The following **diagram** describes the workflow in which the scripts are organized to create de package
+> [!NOTE]
+> ## Workflow of photomossR code
+> The following **diagram** describes the workflow in which the scripts are organized to create de package
 
 ```mermaid
 flowchart LR
