@@ -105,7 +105,7 @@ ccspectral.df(tif.path,
 ****
 > [!NOTE]
 > ## Workflow of photomossR code
-> The following **diagram** describes the workflow in which the scripts are organized to create de package
+> The following **diagram** describes the workflow in which the scripts are organized to create the package
 
 ```mermaid
 flowchart LR
